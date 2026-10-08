@@ -1,0 +1,33 @@
+#include <WiFi.h> // Use #include <ESP8266WiFi.h> if you are using an ESP8266
+
+// Replace with your network credentials
+const char* ssid     = "TECNO CAMON 4 0 PRO 5G";
+const char* password = "santrifiwa";
+
+void setup() {
+  // Start the Serial Monitor to see connection progress
+  Serial.begin(115200);
+  delay(10);
+
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
+  // Connect to Wi-Fi
+  WiFi.begin(ssid, password);
+
+  // Wait until the connection is established
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("Wi-Fi connected!");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP()); // Prints the local IP address assigned to the ESP
+}
+
+void loop() {
+  // Code to run repeatedly goes here
+}
